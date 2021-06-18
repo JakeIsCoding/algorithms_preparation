@@ -12,12 +12,16 @@ class Solution:
         # Create a dict of value: index pairs.
         nums_hash = {n: i for i,n in enumerate(nums)}
         # Loop over nums, check if complement is in the dict.
-        for num in nums:
-            if target - num in nums_hash and num != target - num:
-                return [nums_hash[num], nums_hash[target-num]]
+        for i, num in enumerate(nums):
+            if target - num in nums_hash:
+                # Check to make sure element isn't being repeated.
+                if i != nums_hash[target - num]:
+                    return [i, nums_hash[target-num]]
         raise RunTimeError('No solution found.')
         # Time Complexity: O(N), Space Complexity: O(N)
 
 if __name__ == '__main__':
     sol = Solution()
     assert sol.twoSum([2,7,11,15], 9) == [0,1]
+    assert sol.twoSum([3,2,4], 6) == [1,2]
+    assert sol.twoSum([3,3], 6) == [0,1]
