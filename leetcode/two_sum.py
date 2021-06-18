@@ -17,7 +17,7 @@ class Solution:
                 # Check to make sure element isn't being repeated.
                 if i != nums_hash[target - num]:
                     return [i, nums_hash[target-num]]
-        raise RunTimeError('No solution found.')
+        return None
         # Time Complexity: O(N), Space Complexity: O(N)
 
 if __name__ == '__main__':
