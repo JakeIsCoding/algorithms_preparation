@@ -13,7 +13,7 @@ class Solution:
         nums_hash = {n: i for i,n in enumerate(nums)}
         # Loop over nums, check if complement is in the dict.
         for num in nums:
-            if target - num in nums_hash:
+            if target - num in nums_hash and num != target - num:
                 return [nums_hash[num], nums_hash[target-num]]
         raise RunTimeError('No solution found.')
         # Time Complexity: O(N), Space Complexity: O(N)
