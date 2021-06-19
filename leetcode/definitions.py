@@ -15,6 +15,13 @@ class ListNode:
             other_start = other_start.next
         return True
 
+    def __repr__(self):
+        if self.next:
+            return "ListNode: val = " + str(self.val) + "   next = " + str(self.next.val)
+        else:
+            return "ListNode: val = " + str(self.val) + "   next = None"
+
+
 class Tree:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -25,6 +32,8 @@ def construct_listnode(list):
     '''
     Constructs a ListNode object from a list. Returns the first object in the list.
     '''
+    if not list:
+        return None
     head_node = ListNode(list[0], None)
     prev_node = head_node
     for val in list[1:]:
